@@ -15,7 +15,7 @@ abstract class CvStyles {
   static const TextStyle mainTitleStyle = TextStyle(
     fontFamily: 'Montserrat',
     fontSize: 48,
-    fontWeight: FontWeight.w900,
+    fontWeight: FontWeight.w500,
     color: primaryTextColor,
     height: 1,
   );
