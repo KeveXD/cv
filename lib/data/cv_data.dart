@@ -27,16 +27,20 @@ class EducationItem {
 }
 
 class ExperienceItem {
-  final String duration;
-  final String company;
+  final String huDuration;
+  final String huCompany;
+  final String enDuration;
+  final String enCompany;
   final String huJobTitle;
   final String enJobTitle;
   final List<String> huDetails;
   final List<String> enDetails;
 
   ExperienceItem({
-    required this.duration,
-    required this.company,
+    required this.huDuration,
+    required this.huCompany,
+    required this.enDuration,
+    required this.enCompany,
     required this.huJobTitle,
     required this.enJobTitle,
     required this.huDetails,
@@ -70,8 +74,8 @@ abstract class CvData {
     EducationItem(
       huInstitution: 'BME VIK',
       enInstitution: 'Budapest University of Technology and Economics (BME)',
-      huDetails: 'Mérnökinformatikus MSc, 2024 - folyamatban',
-      enDetails: 'Computer Science Engineering MSc, 2024 - ongoing',
+      huDetails: 'Mérnökinformatikus MSc, 2024 - folyamatban \n(végzés: 2026 jún.)',
+      enDetails: 'Computer Science Engineering MSc, 2024 - ongoing \n(finishing: June, 2026)',
       url: 'https://www.bme.hu/en',
     ),
     EducationItem(
@@ -94,32 +98,33 @@ abstract class CvData {
 
   // Készségek
   static final List<String> huSkills = [
-    'Mobil szoftverfejlesztés',
-    'Cross-platform Flutter fejlesztés',
-    'Programozás: Dart, C, C++, Java',
-    'Adatbázis-kezelés és szerverkommunikáció',
-    'Frontend és UI/UX tervezés',
-    'Agilis módszertanok és projektmenedzsment',
+    'Flutter, Dart',
+    'REST API integráció',
+    'Git verziókezelés',
+    'Mobil UI fejlesztése',
+    'Rendszerszintű gondolkodás',
+    'Szoftverarchitektúra minták és tervezési elvek ismerete'
   ];
   static final List<String> enSkills = [
-    'Mobile Software Development',
-    'Cross-platform Flutter Development',
-    'Programming: Dart, C, C++, Java',
-    'Database Management and Server Communication',
-    'Frontend and UI/UX Design',
-    'Agile Methodologies and Project Management',
+    'Flutter, Dart',
+    'REST API integration',
+    'Git',
+    'Mobile UI development',
+    'Debugging & problem solving',
+    'System design thinking',
+    'Software architecture patterns & design principles'
   ];
 
   // Rólam
-  static const String huAboutMe = "Szakmai fókuszom elsősorban a mobil szoftverfejlesztés, viszont nyitott vagyok az informatika különböző területeinek megismerésére és kipróbálására is. Az új kihívásokat, lehetőségeket szeretem, és mindig megtalálom a megfelelő megoldást, még akkor is, ha az nem feltétlenül a legegyszerűbb út. Egyetemi tanulmányaim, munkahelyi tapasztalataim és saját projektjeim során sok technológiát alkalmaztam és próbáltam ki, amelyek révén gyorsan tanulok és jó rálátást szereztem különféle rendszerekre. Leginkább az informatika azon területei vonzanak, amik gondolkodtatóak, ahol lehetőség van új dolgok létrehozására és problémamegoldásra, míg a kutatás és a tesztelés kevésbé motiváló számomra.";
+  static const String huAboutMe = "Szakmai fókuszom elsősorban a mobilfejlesztés. Flutterrel dolgoztam korábbi munkahelyemen, egyetemi és saját projekteken. Ebben vagyok igazán jó. Az informatika azon területeit szeretem, ahol gondolkodni kell, rendszert, automatizálást építeni, skálázható jól struktúrált megoldásokat kell tervezni.";
 
-  static const String enAboutMe = "My professional focus is mobile software development, while exploring different areas of software development. I am not afraid of new challenges and always find solutions, even if not the easiest path. I have experimented with many technologies in university, workplace, and personal projects, which allows me to learn quickly and have a broad understanding of various systems. I am particularly drawn to areas of IT where I can create something new and think creatively about problem-solving,while research and testing are less appealing to me.";
-
-  // Munkatapasztalat
+  static const String enAboutMe = "My professional focus is primarily on mobile development. I have worked with Flutter at my previous job, as well as on university and personal projects. This is the area where I excel. I am most interested in areas of IT that require analytical thinking, building systems and automation, and designing scalable, well-structured solutions.";
   static final List<ExperienceItem> workExperience = [
     ExperienceItem(
-      duration: '2024 január - 2025 október',
-      company: 'Ulyssys Kft.',
+      huDuration: '2024 január - 2025 október',
+      enDuration: 'January 2024 - October 2025',
+      huCompany: 'Ulyssys Kft.',
+      enCompany: 'Ulyssys Ltd.',
       huJobTitle: 'Mobil szoftverfejlesztő',
       enJobTitle: 'Mobile Software Developer',
       huDetails: [
@@ -138,8 +143,10 @@ abstract class CvData {
       ],
     ),
     ExperienceItem(
-      duration: '2023 - jelenleg',
-      company: 'Mathias Corvinus Collegium (MCC)',
+      huDuration: '2023 - jelenleg',
+      enDuration: '2023 - present',
+      huCompany: 'Mathias Corvinus Collegium (MCC)',
+      enCompany: 'Mathias Corvinus Collegium (MCC)',
       huJobTitle: 'FIT Program Oktató',
       enJobTitle: 'FIT Program Instructor',
       huDetails: [
@@ -151,46 +158,27 @@ abstract class CvData {
         'Focus on promoting responsible internet usage and online conduct',
       ],
     ),
-    ExperienceItem(
-      duration: '2019 - jelenleg',
-      company: 'Felkészítés',
-      huJobTitle: 'Matematika felkészítés felvételire és érettségire',
-      enJobTitle: 'Mathematics Tutoring for Entrance Exams and High School Finals',
-      huDetails: [],
-      enDetails: [],
-    ),
 
 
     ExperienceItem(
-      duration: '2024 - jelenleg',
-      company: 'Magyar Cserkészszövetség (önkéntes/volunteer)',
+      huDuration: '2024 - jelenleg',
+      enDuration: '2024 - present',
+      huCompany: 'Magyar Cserkészszövetség (önkéntes)',
+      enCompany: 'Hungarian Scout Association (volunteer)',
       huJobTitle: 'Csapatparancsnok',
       enJobTitle: 'Scout Master',
       huDetails: [
-        'Körülbelül 300 fős cserkészcsapat irányítása',
-        'Fiatal vezetők képzése és programok szervezése',
-        'Stratégiai döntések a vezetők kiválasztásában, pénzügyi és pedagógiai keretek kialakítása',
+        'Közel 300 fős cserkészcsapat irányítása',
+        'Fiatal vezetők képzése és programok menedzselése',
+        'Vezetők kiválasztása, pénzügyi és pedagógiai keretek kialakítása',
       ],
       enDetails: [
         'Leading a scout team of approximately 300 members',
-        'Training junior leaders and organizing programs',
-        'Strategic decisions in leader selection, establishment of financial and pedagogical frameworks',
+        'Training junior leaders and managing programs',
+        'Leader selection, and establishing financial and pedagogical frameworks',
       ],
     ),
-    ExperienceItem(
-      duration: '2015-2019',
-      company: 'Nagy és Társa Kft. (Húsbolt/Élelmiszeripar)',
-      huJobTitle: 'Vendéglátóipari asszisztens',
-      enJobTitle: 'Hospitality Assistant / Butcher Shop',
-      huDetails: [
-        'Precíz és megbízható munkavégzés, hosszú műszakok betartása, kommunikáció a vásárlókkal.',
-        'Pultos és hátsós munka, pénztárkezelés és higiéniai előírások betartása.',
-      ],
-      enDetails: [
-        'Required precision, reliability, long working hours, and excellent customer communication skills.',
-        'Serving customers, handling cash transactions, and strictly adhering to hygiene standards in the food service industry.',
-      ],
-    ),
+
 
   ];
 

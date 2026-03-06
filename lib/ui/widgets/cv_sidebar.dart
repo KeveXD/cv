@@ -10,6 +10,33 @@ import '../../styles.dart';
 class CvSidebar extends StatelessWidget {
   const CvSidebar({super.key});
 
+  Widget _buildSwipableImage(String assetPath) {
+    return Container(
+      margin: const EdgeInsets.symmetric(horizontal: 10), // Kis margó, hogy ne érjenek össze a lapozásnál
+      decoration: BoxDecoration(
+        color: Colors.white, // A keret színe
+        borderRadius: BorderRadius.circular(20), // Kicsit nagyobb, hogy kövesse a kép lekerekítését
+        border: Border.all(color: Colors.white, width: 5), // A vastag fehér keret
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.1),
+            blurRadius: 10,
+            spreadRadius: 2,
+          ),
+        ],
+      ),
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(15),
+        child: Image.asset(
+          assetPath,
+          width: 140,
+          height: 140,
+          fit: BoxFit.cover,
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     // Figyeli a LanguageCubit állapotát
@@ -24,20 +51,38 @@ class CvSidebar extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             // Kép
+            // Kép szakasz négyzetes, lekerekített sarkokkal, jobbra egy másik kép
             Center(
               child: Container(
-                width: 140,
-                height: 140,
+                width: 150, // A teljes méret (kép + keret)
+                height: 150,
                 decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  border: Border.all(color: Colors.white.withOpacity(0.3), width: 5),
-                  boxShadow: const [
-                    BoxShadow(color: Colors.white, blurRadius: 0, spreadRadius: 3)
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(20), // A keret külső lekerekítése
+                  border: Border.all(color: Colors.white, width: 5), // A fix, vastag fehér keret
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withOpacity(0.1),
+                      blurRadius: 10,
+                      spreadRadius: 2,
+                    ),
                   ],
                 ),
-                child: const ClipOval(
-                  // A kép elérési útja a pubspec.yaml alapján
-                  child: Image(image: AssetImage('assets/image.jpg'), fit: BoxFit.cover),
+                // A ClipRRect a kereten belülre kerül, így a csúszó képek sarkai is kerekítettek lesznek
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(15), // A kép belső lekerekítése
+                  child: PageView(
+                    children: [
+                      Image.asset(
+                        'assets/elso.jpg',
+                        fit: BoxFit.cover, // Kitölti a kereten belüli helyet
+                      ),
+                      Image.asset(
+                        'assets/masodik.jpg',
+                        fit: BoxFit.cover,
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),

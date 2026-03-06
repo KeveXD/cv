@@ -155,6 +155,8 @@ class ExperienceItemWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final details = isEnglish ? item.enDetails : item.huDetails;
     final jobTitle = isEnglish ? item.enJobTitle : item.huJobTitle;
+    final company = isEnglish ? item.enCompany : item.huCompany;
+    final duration = isEnglish ? item.enDuration : item.huDuration;
     List<String> displayDetails = details.isEmpty ? [''] : details;
 
     return Padding(
@@ -162,9 +164,9 @@ class ExperienceItemWidget extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(item.duration, style: const TextStyle(fontSize: 14, color: secondaryTextColor)),
+          Text(duration, style: const TextStyle(fontSize: 14, color: secondaryTextColor)),
           const SizedBox(height: 4),
-          Text(item.company, style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w700, color: primaryTextColor)),
+          Text(company, style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w700, color: primaryTextColor)),
           const SizedBox(height: 2),
           Text(jobTitle, style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w500, color: sidebarBgColor)),
           const SizedBox(height: 8),
