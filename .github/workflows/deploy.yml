@@ -2,7 +2,7 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [ main ] # Ha a fő ágad neve 'master', akkor azt írd ide!
+    branches: [ master ]
 
 jobs:
   build:
