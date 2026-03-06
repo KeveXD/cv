@@ -6,7 +6,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../cubit/language_cubit.dart';
 import '../styles.dart';
 
-
 class CvScreen extends StatelessWidget {
   const CvScreen({super.key});
 
@@ -25,12 +24,30 @@ class CvScreen extends StatelessWidget {
     // Mobil nézetben a CV szélessége 95%, asztali nézetben max 800px
     final cvWidth = isMobile ? screenWidth * 0.95 : 800.0;
 
+    // --- Halvány, nagy háttérkép a CV "papír" aljára ---
+    final backgroundDecoration = Positioned(
+      bottom: 0, // A fehér konténer aljához igazítva
+      right: 0,  // A fehér konténer jobb széléhez igazítva
+      child: IgnorePointer(
+        child: Opacity(
+          opacity: 0.1,
+          child: Image.asset(
+            'assets/kalakep.jpg',
+            width: isMobile ? 300 : 420.0,
+            fit: BoxFit.contain,
+          ),
+        ),
+      ),
+    );
+
     // Fő tartalom (beleértve a címet és az egész CV-t)
     final cvContent = Container(
       width: cvWidth,
       constraints: const BoxConstraints(minHeight: 1120),
       decoration: BoxDecoration(
         color: Colors.white,
+        // Ha esetleg lekerekíted a CV sarkait a jövőben, ez megakadályozza, hogy a kép kilógjon:
+        // borderRadius: BorderRadius.circular(10),
         boxShadow: [
           BoxShadow(
             color: Colors.black.withOpacity(0.1),
@@ -39,18 +56,25 @@ class CvScreen extends StatelessWidget {
           ),
         ],
       ),
-      child: isMobile
-          ? const CvMainContent() // Mobil: Csak a fő tartalom (sidebar a drawerben)
-          : const Row( // Asztali: Két oszlop
-        crossAxisAlignment: CrossAxisAlignment.start,
+      // Itt a változás: A konténer tartalma most egy Stack
+      // clipBehavior: Clip.hardEdge, // Kapcsold be, ha lekerekített sarkokat használsz!
+      child: Stack(
         children: [
-          Expanded(
-            flex: 3, // 30%
-            child: CvSidebar(),
-          ),
-          Expanded(
-            flex: 7, // 70%
-            child: CvMainContent(),
+          backgroundDecoration, // <-- A kép magán a "papíron" van legalul
+          isMobile
+              ? const CvMainContent()
+              : const Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Expanded(
+                flex: 3,
+                child: CvSidebar(),
+              ),
+              Expanded(
+                flex: 7,
+                child: CvMainContent(),
+              ),
+            ],
           ),
         ],
       ),
@@ -76,7 +100,7 @@ class CvScreen extends StatelessWidget {
     // --- Asztali vagy mobil nézet renderelése ---
 
     if (!isMobile) {
-      // 1. ASZTALI NÉZET: Stack a gombbal és a középre igazított tartalommal
+      // 1. ASZTALI NÉZET
       return Scaffold(
         backgroundColor: const Color(0xFFf0f0f0),
         body: Stack(
@@ -84,7 +108,7 @@ class CvScreen extends StatelessWidget {
             Center(
               child: SingleChildScrollView(
                 padding: const EdgeInsets.symmetric(vertical: 40.0),
-                child: cvContent,
+                child: cvContent, // Ebben már benne van a háttérkép
               ),
             ),
             Positioned(
@@ -96,15 +120,12 @@ class CvScreen extends StatelessWidget {
         ),
       );
     } else {
-      // 2. MOBIL NÉZET: Scaffold, Drawerrel és AppBarral (Burger menü)
+      // 2. MOBIL NÉZET
       return Scaffold(
         backgroundColor: const Color(0xFFf0f0f0),
-        // Kihúzható bal oldali sáv
         drawer: const Drawer(
-          child: CvSidebar(), // A teljes sidebar a drawer tartalma
+          child: CvSidebar(),
         ),
-
-        // Appbar a menü gombbal és a gombbal
         appBar: AppBar(
           backgroundColor: sidebarBgColor,
           title: Text(
@@ -119,12 +140,10 @@ class CvScreen extends StatelessWidget {
             ),
           ],
         ),
-
-        // Fő tartalom (MainContent) középen
         body: Center(
           child: SingleChildScrollView(
             padding: const EdgeInsets.symmetric(vertical: 20.0),
-            child: cvContent,
+            child: cvContent, // Ebben már benne van a háttérkép
           ),
         ),
       );

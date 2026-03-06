@@ -59,7 +59,7 @@ abstract class CvData {
   // Kapcsolat
   static final List<ContactItem> contact = [
     ContactItem(icon: Icons.email, hu: 'keve.balla@gmail.com', en: 'keve.balla@gmail.com'),
-    ContactItem(icon: Icons.phone, hu: '+36209470149', en: '+36209470149'),
+    ContactItem(icon: Icons.phone, hu: '+36 20 947 0149', en: '+36 20 947 0149'),
     ContactItem(icon: Icons.home, hu: 'Magyarország, Budapest', en: 'Budapest, Hungary'),
     ContactItem(
       icon: Icons.link,
