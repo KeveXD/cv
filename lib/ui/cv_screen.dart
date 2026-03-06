@@ -21,13 +21,12 @@ class CvScreen extends StatelessWidget {
     final screenWidth = MediaQuery.of(context).size.width;
     final isMobile = screenWidth < breakpoint;
 
-    // Mobil nézetben a CV szélessége 95%, asztali nézetben max 800px
     final cvWidth = isMobile ? screenWidth * 0.95 : 800.0;
 
     // --- Halvány, nagy háttérkép a CV "papír" aljára ---
     final backgroundDecoration = Positioned(
-      bottom: 0, // A fehér konténer aljához igazítva
-      right: 0,  // A fehér konténer jobb széléhez igazítva
+      bottom: 0,
+      right: 0,
       child: IgnorePointer(
         child: Opacity(
           opacity: 0.1,
@@ -40,14 +39,11 @@ class CvScreen extends StatelessWidget {
       ),
     );
 
-    // Fő tartalom (beleértve a címet és az egész CV-t)
     final cvContent = Container(
       width: cvWidth,
       constraints: const BoxConstraints(minHeight: 1120),
       decoration: BoxDecoration(
         color: Colors.white,
-        // Ha esetleg lekerekíted a CV sarkait a jövőben, ez megakadályozza, hogy a kép kilógjon:
-        // borderRadius: BorderRadius.circular(10),
         boxShadow: [
           BoxShadow(
             color: Colors.black.withOpacity(0.1),
@@ -56,11 +52,9 @@ class CvScreen extends StatelessWidget {
           ),
         ],
       ),
-      // Itt a változás: A konténer tartalma most egy Stack
-      // clipBehavior: Clip.hardEdge, // Kapcsold be, ha lekerekített sarkokat használsz!
       child: Stack(
         children: [
-          backgroundDecoration, // <-- A kép magán a "papíron" van legalul
+          backgroundDecoration,
           isMobile
               ? const CvMainContent()
               : const Row(
@@ -93,7 +87,10 @@ class CvScreen extends StatelessWidget {
       ),
       child: Text(
         isEnglish ? 'Magyar / English' : 'English / Magyar',
-        style: const TextStyle(fontWeight: FontWeight.bold),
+        style: const TextStyle(
+          fontWeight: FontWeight.bold,
+          fontFamily: 'Lora', // <-- Itt használjuk az egyik betűtípust (Lora)
+        ),
       ),
     );
 
@@ -108,7 +105,7 @@ class CvScreen extends StatelessWidget {
             Center(
               child: SingleChildScrollView(
                 padding: const EdgeInsets.symmetric(vertical: 40.0),
-                child: cvContent, // Ebben már benne van a háttérkép
+                child: cvContent,
               ),
             ),
             Positioned(
@@ -129,8 +126,11 @@ class CvScreen extends StatelessWidget {
         appBar: AppBar(
           backgroundColor: sidebarBgColor,
           title: Text(
-            isEnglish ? 'Keve Balla CV' : 'Balla Keve Önéletrajza',
-            style: const TextStyle(color: Colors.white),
+            isEnglish ? 'Keve Balla CV' : 'Balla Keve CV',
+            style: const TextStyle(
+              color: Colors.white,
+              fontFamily: 'Domine', // <-- Itt használjuk a másik betűtípust (Domine)
+            ),
           ),
           iconTheme: const IconThemeData(color: Colors.white),
           actions: [
@@ -143,7 +143,7 @@ class CvScreen extends StatelessWidget {
         body: Center(
           child: SingleChildScrollView(
             padding: const EdgeInsets.symmetric(vertical: 20.0),
-            child: cvContent, // Ebben már benne van a háttérkép
+            child: cvContent,
           ),
         ),
       );

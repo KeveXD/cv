@@ -6,7 +6,6 @@ import '../../cubit/language_cubit.dart';
 import '../../data/cv_data.dart';
 import '../../styles.dart';
 
-
 class CvMainContent extends StatelessWidget {
   const CvMainContent({super.key});
 
@@ -20,15 +19,15 @@ class CvMainContent extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // Fő cím és Alcím
+          // Fő cím -> Domine (Címsor betűtípus)
           Text(
             isEnglish ? CvData.enName : CvData.huName,
-            style: CvStyles.mainTitleStyle,
+            style: CvStyles.mainTitleStyle.copyWith(fontFamily: 'Domine'),
           ),
           const SizedBox(height: 5),
           Text(
             (isEnglish ? CvData.enJobTitle : CvData.huJobTitle).toUpperCase(),
-            style: CvStyles.subTitleStyle,
+            style: CvStyles.subTitleStyle.copyWith(fontFamily: 'Domine'),
           ),
           const SizedBox(height: 30),
 
@@ -37,7 +36,7 @@ class CvMainContent extends StatelessWidget {
             title: isEnglish ? 'About Me' : 'Rólam',
             child: Text(
               isEnglish ? CvData.enAboutMe : CvData.huAboutMe,
-              style: CvStyles.mainTextStyle,
+              style: CvStyles.mainTextStyle.copyWith(fontFamily: 'Lora'),
             ),
           ),
 

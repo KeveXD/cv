@@ -22,6 +22,18 @@ dev_dependencies:
 flutter:
   uses-material-design: true
 
+  fonts:
+    - family: Domine
+      fonts:
+        - asset: assets/domine/Domine-Regular.ttf
+        - asset: assets/domine/Domine-Bold.ttf
+          weight: 700 # <-- Megmondjuk, hogy ez a vastag
+    - family: Lora # <-- Itt volt a hiba, ezt átírtuk Lora-ra
+      fonts:
+        - asset: assets/lora/Lora-Regular.ttf
+        - asset: assets/lora/Lora-Bold.ttf
+          weight: 700 # <-- Itt is
+
   assets:
     - assets/elso.jpg
     - assets/masodik.jpg

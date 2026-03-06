@@ -4,7 +4,6 @@ import 'package:url_launcher/url_launcher.dart';
 import '../../data/cv_data.dart';
 import '../../styles.dart';
 
-
 // Link megnyitása böngészőben (segédmetódus)
 Future<void> launchURL(String url) async {
   final Uri uri = Uri.parse(url);
@@ -25,7 +24,7 @@ class SidebarSectionHeader extends StatelessWidget {
       children: [
         Text(
           title.toUpperCase(),
-          style: CvStyles.sidebarSectionTitleStyle,
+          style: CvStyles.sidebarSectionTitleStyle.copyWith(fontFamily: 'Domine'), // <-- Címsor (Domine)
         ),
         Container(
             height: 2,
@@ -59,6 +58,7 @@ class ContactInfoWidget extends StatelessWidget {
             Expanded(
                 child: Text(text,
                     style: TextStyle(
+                        fontFamily: 'Lora', // <-- Folyószöveg (Lora)
                         color: sidebarTextColor,
                         fontSize: 13.5,
                         decoration: isLink ? TextDecoration.underline : TextDecoration.none))),
@@ -85,10 +85,17 @@ class EducationItemWidget extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(isEnglish ? item.enInstitution : item.huInstitution,
-                style: const TextStyle(fontWeight: FontWeight.w700, fontSize: 16, color: sidebarTextColor)),
+                style: const TextStyle(
+                    fontFamily: 'Domine', // <-- Iskola neve, mint alcím (Domine)
+                    fontWeight: FontWeight.w700,
+                    fontSize: 16,
+                    color: sidebarTextColor)),
             const SizedBox(height: 2),
             Text(isEnglish ? item.enDetails : item.huDetails,
-                style: const TextStyle(fontSize: 13, color: sidebarMutedTextColor)),
+                style: const TextStyle(
+                    fontFamily: 'Lora', // <-- Részletek (Lora)
+                    fontSize: 13,
+                    color: sidebarMutedTextColor)),
           ],
         ),
       ),
@@ -108,8 +115,8 @@ class SkillItemWidget extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text('• ', style: TextStyle(color: sidebarTextColor, fontWeight: FontWeight.bold, fontSize: 13.5)),
-          Expanded(child: Text(text, style: const TextStyle(color: sidebarTextColor, fontSize: 13.5))),
+          const Text('• ', style: TextStyle(fontFamily: 'Lora', color: sidebarTextColor, fontWeight: FontWeight.bold, fontSize: 13.5)),
+          Expanded(child: Text(text, style: const TextStyle(fontFamily: 'Lora', color: sidebarTextColor, fontSize: 13.5))), // <-- Folyószöveg (Lora)
         ],
       ),
     );
@@ -131,7 +138,7 @@ class MainSectionWidget extends StatelessWidget {
         children: [
           Text(
             title.toUpperCase(),
-            style: CvStyles.mainSectionTitleStyle,
+            style: CvStyles.mainSectionTitleStyle.copyWith(fontFamily: 'Domine'), // <-- Címsor (Domine)
           ),
           Container(
               height: 2,
@@ -164,19 +171,19 @@ class ExperienceItemWidget extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(duration, style: const TextStyle(fontSize: 14, color: secondaryTextColor)),
+          Text(duration, style: const TextStyle(fontFamily: 'Lora', fontSize: 14, color: secondaryTextColor)), // <-- Dátum (Lora)
           const SizedBox(height: 4),
-          Text(company, style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w700, color: primaryTextColor)),
+          Text(company, style: const TextStyle(fontFamily: 'Domine', fontSize: 18, fontWeight: FontWeight.w700, color: primaryTextColor)), // <-- Cégnév (Domine)
           const SizedBox(height: 2),
-          Text(jobTitle, style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w500, color: sidebarBgColor)),
+          Text(jobTitle, style: const TextStyle(fontFamily: 'Domine', fontSize: 16, fontWeight: FontWeight.w500, color: sidebarBgColor)), // <-- Pozíció (Domine)
           const SizedBox(height: 8),
           ...displayDetails.map((detail) => Padding(
             padding: const EdgeInsets.only(bottom: 5.0),
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text('•  ', style: TextStyle(color: primaryTextColor, fontSize: 15, height: 1.5)),
-                Expanded(child: Text(detail, style: CvStyles.mainTextStyle.copyWith(height: 1.5))),
+                const Text('•  ', style: TextStyle(fontFamily: 'Lora', color: primaryTextColor, fontSize: 15, height: 1.5)), // <-- Felsorolásjel (Lora)
+                Expanded(child: Text(detail, style: CvStyles.mainTextStyle.copyWith(fontFamily: 'Lora', height: 1.5))), // <-- Feladat leírása (Lora)
               ],
             ),
           )).toList(),

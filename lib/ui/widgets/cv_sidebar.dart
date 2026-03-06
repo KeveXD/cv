@@ -94,7 +94,11 @@ class CvSidebar extends StatelessWidget {
                 padding: EdgeInsets.only(bottom: 15.0),
                 child: Text(
                   'Hungarian and American Citizen (SSN available)',
-                  style: TextStyle(color: sidebarTextColor, fontSize: 13.5),
+                  style: TextStyle(
+                    color: sidebarTextColor,
+                    fontSize: 13.5,
+                    fontFamily: 'Lora', // <-- Folyószöveg betűtípus
+                  ),
                 ),
               ),
 
@@ -144,8 +148,14 @@ class CvSidebar extends StatelessWidget {
                   ...CvData.languages.map((lang) {
                     return Padding(
                       padding: const EdgeInsets.only(bottom: 5),
-                      child: Text(isEnglish ? lang['en']! : lang['hu']!,
-                          style: const TextStyle(color: sidebarTextColor, fontSize: 13.5)),
+                      child: Text(
+                        isEnglish ? lang['en']! : lang['hu']!,
+                        style: const TextStyle(
+                          color: sidebarTextColor,
+                          fontSize: 13.5,
+                          fontFamily: 'Lora', // <-- Folyószöveg betűtípus
+                        ),
+                      ),
                     );
                   }).toList(),
                 ],
