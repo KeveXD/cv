@@ -118,7 +118,7 @@ abstract class CvData {
   // Rólam
   static const String huAboutMe = "Szakmai fókuszom elsősorban a mobilfejlesztés. Flutterrel dolgoztam korábbi munkahelyemen, egyetemi és saját projekteken. Ebben vagyok igazán jó. Az informatika azon területeit szeretem, ahol gondolkodni kell, rendszert, automatizálást építeni, skálázható jól struktúrált megoldásokat kell tervezni.";
 
-  static const String enAboutMe = "My professional focus is primarily on mobile development. I have worked with Flutter at my previous job, as well as on university and personal projects. This is the area where I excel. I am most interested in areas of IT that require analytical thinking, building systems and automation, and designing scalable, well-structured solutions.";
+  static const String enAboutMe = "My professional focus is primarily on mobile development. I have worked with Flutter at my previous job, as well as on university and personal projects. This is where I am most experienced. I am most interested in areas of IT that require analytical thinking, building systems and automation, and designing scalable, well-structured solutions.";
   static final List<ExperienceItem> workExperience = [
     ExperienceItem(
       huDuration: '2024 január - 2025 október',
