@@ -126,7 +126,7 @@ class CvScreen extends StatelessWidget {
         appBar: AppBar(
           backgroundColor: sidebarBgColor,
           title: Text(
-            isEnglish ? 'Keve Balla CV' : 'Balla Keve CV',
+            isEnglish ? 'CV' : 'CV',
             style: const TextStyle(
               color: Colors.white,
               fontFamily: 'Domine', // <-- Itt használjuk a másik betűtípust (Domine)
