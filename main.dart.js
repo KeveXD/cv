@@ -35927,7 +35927,7 @@ n=l.ga9p()
 s=A.aoE(o,o,B.eb,o,o,o,o,o,o,B.i,o,o,B.zL,o,new A.cG(A.r5(5),B.q),o,o,o,o,o)
 p=new A.Cn(n,o,o,o,s,o,o,!1,o,o,A.dZ(m?"Magyar / English":"English / Magyar",B.LE),o)
 if(!j)return A.ahe(o,B.k1,A.wa(B.cA,A.d([A.ri(A.acB(q,B.zJ),o,o),A.aco(o,p,o,o,o,20,20,o)],r),B.dA),o)
-else{n=A.dZ(m?"Keve Balla CV":"Balla Keve CV",B.JR)
+else{n=A.dZ("CV",B.JR)
 r=A.d([new A.bR(B.zG,p,o)],r)
 return A.ahe(new A.qX(n,r,B.eb,B.kw,new A.KH(o,o,1/0,56),o),B.k1,A.ri(A.acB(q,B.zI),o,o),B.zr)}}}
 A.BM.prototype={
