@@ -74,8 +74,8 @@ abstract class CvData {
     EducationItem(
       huInstitution: 'BME VIK',
       enInstitution: 'Budapest University of Technology and Economics (BME)',
-      huDetails: 'Mérnökinformatikus MSc, 2024 - folyamatban \n(végzés: 2026 jún.)',
-      enDetails: 'Computer Science Engineering MSc, 2024 - ongoing \n(finishing: June, 2026)',
+      huDetails: 'Mérnökinformatikus MSc, 2024 - 2026 \n',
+      enDetails: 'Computer Science Engineering MSc, 2024 - 2026 \n',
       url: 'https://www.bme.hu/en',
     ),
     EducationItem(
@@ -101,24 +101,21 @@ abstract class CvData {
     'Flutter, Dart',
     'REST API integráció',
     'Git verziókezelés',
-    'Mobil UI fejlesztése',
-    'Rendszerszintű gondolkodás',
+    'Android, Kotlin',
     'Szoftverarchitektúra minták és tervezési elvek ismerete'
   ];
   static final List<String> enSkills = [
     'Flutter, Dart',
     'REST API integration',
     'Git',
-    'Mobile UI development',
-    'Debugging & problem solving',
-    'System design thinking',
+    'Android, Kotlin',
     'Software architecture patterns & design principles'
   ];
 
   // Rólam
-  static const String huAboutMe = "Szakmai fókuszom elsősorban a mobilfejlesztés. Flutterrel dolgoztam korábbi munkahelyemen, egyetemi és saját projekteken. Ebben vagyok igazán jó. Az informatika azon területeit szeretem, ahol gondolkodni kell, rendszert, automatizálást építeni, skálázható jól struktúrált megoldásokat kell tervezni.";
+  static const String huAboutMe = "Szakmai fókuszom elsősorban a mobilfejlesztés. Flutterrel dolgoztam korábbi és jelenlegi munkahelyemen, egyetemi és saját projekteken is. Ebben vagyok igazán jó. Az informatika azon területeit szeretem, ahol gondolkodni kell, rendszert, automatizálást építeni, skálázható jól struktúrált megoldásokat kell tervezni.";
 
-  static const String enAboutMe = "My professional focus is primarily on mobile development. I have worked with Flutter at my previous job, as well as on university and personal projects. This is where I am most experienced. I am most interested in areas of IT that require analytical thinking, building systems and automation, and designing scalable, well-structured solutions.";
+  static const String enAboutMe = "My professional focus is primarily on mobile development. I have worked with Flutter at my previous and current job, as well as on university and personal projects. This is where I am most experienced. I am most interested in areas of IT that require analytical thinking, building systems and automation, and designing scalable, well-structured solutions.";
   static final List<ExperienceItem> workExperience = [
     ExperienceItem(
       huDuration: '2024 január - 2025 október',

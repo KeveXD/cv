@@ -30,11 +30,11 @@ class CvScreen extends StatelessWidget {
       child: IgnorePointer(
         child: Opacity(
           opacity: 0.1,
-          child: Image.asset(
-            'assets/kalakep.jpg',
-            width: isMobile ? 300 : 420.0,
-            fit: BoxFit.contain,
-          ),
+          // child: Image.asset(
+          //   'assets/kalakep.jpg',
+          //   width: isMobile ? 300 : 420.0,
+          //   fit: BoxFit.contain,
+          // ),
         ),
       ),
     );
